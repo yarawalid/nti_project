@@ -14,7 +14,8 @@ st.markdown(
 )
 
 # Load model
-MODEL_PATH = "models/model.h5"
+MODEL_PATH = "model.h5"
+
 
 try:
     model = keras.models.load_model(MODEL_PATH)
