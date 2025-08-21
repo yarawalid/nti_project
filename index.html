@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stroke Predictor</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main>
+    <h1>Stroke Predictor</h1>
+    <form id="predict-form">
+      <label>Age <input name="age" type="number" step="0.1" required></label>
+      <label>Gender
+        <select name="gender">
+          <option>Male</option><option>Female</option>
+        </select>
+      </label>
+      <button type="submit">Predict</button>
+    </form>
+
+    <div id="result"></div>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

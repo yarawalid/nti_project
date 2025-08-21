@@ -3,7 +3,8 @@ import numpy as np
 from tensorflow import keras
 
 # Load model
-MODEL_PATH = "models/model.h5"  # Use forward slash for compatibility
+MODEL_PATH = r"C:\Users\HP\vscode\ntiapp\models\model.h5"
+ # Use forward slash for compatibility
 try:
     model = keras.models.load_model(MODEL_PATH)
     st.write("📊 Model input shape:", model.input_shape)
