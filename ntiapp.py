@@ -6,7 +6,6 @@ from tensorflow import keras
 MODEL_PATH = "models/model.h5"  # Use forward slash for compatibility
 try:
     model = keras.models.load_model(MODEL_PATH)
-    # Debug: show model input shape
     st.write("📊 Model input shape:", model.input_shape)
 except Exception as e:
     st.error(f"⚠️ Error loading model: {e}")
@@ -55,9 +54,9 @@ def encode_inputs():
     smoke_onehot = [1 if smoking_status == sm else 0 for sm in smoke_types]
 
     # Combine features → total 17
-    features = [
-        age, avg_glucose_level, bmi
-    ] + gender_num + hyper + heart + married + work_onehot + residence_num + smoke_onehot
+    features = [age, avg_glucose_level, bmi] \
+        + gender_num + hyper + heart + married \
+        + work_onehot + residence_num + smoke_onehot
 
     return np.array([features], dtype=np.float32)
 
@@ -66,8 +65,17 @@ if st.button("🔍 Predict"):
     try:
         input_data = encode_inputs()
         st.write("📐 Encoded input shape:", input_data.shape)
+
         prediction = model.predict(input_data, verbose=0)
-        result = "⚠️ High risk of stroke" if prediction[0][0] > 0.5 else "✅ Low risk of stroke"
-        st.success(result)
+        score = float(prediction[0][0])
+
+        st.write(f"🧮 Model raw output: **{score:.4f}**")
+
+        if score > 0.5:
+            st.error("⚠️ High risk of stroke")
+        else:
+            st.success("✅ Low risk of stroke")
+
     except Exception as e:
         st.error(f"Prediction error: {e}")
+
