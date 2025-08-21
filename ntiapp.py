@@ -14,7 +14,8 @@ st.markdown(
 )
 
 # Load model
-MODEL_PATH = r"C:/Users/HP/vscode/ntiapp/models/model.h5"
+MODEL_PATH = "models/model.h5"
+
 try:
     model = keras.models.load_model(MODEL_PATH)
     st.success(f"✅ Model loaded successfully! Input shape: {model.input_shape}")
