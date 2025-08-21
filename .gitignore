@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+*.manifest
+*.spec
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+*.env
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Models and data (keep your own local copies)
+models/*.pkl
+!models/.gitkeep
+data/*.csv
+!data/.gitkeep
+
+# Cache
+.cache/
+pytest_cache/
+.mypy_cache/
+.pytest_cache/
